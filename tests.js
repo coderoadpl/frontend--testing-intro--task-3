@@ -82,3 +82,69 @@ expectToThrow(
     }),
     'First argument must be an array!'
 )
+
+const cart5 = [
+    {
+        name: 'Laptop',
+        price: 1000,
+        quantity: 2,
+    },
+    {
+        name: 'Smartphone',
+        price: 500,
+        quantity: 2,
+    },
+    {
+        name: 'Shipping',
+        isShipping: true,
+        price: 50,
+    },
+]
+
+expectToBe('Shipping is not free above price 200', orderTotal(cart5), 3000)
+
+const cart6 = [
+    {
+        name: 'CD',
+        price: 2,
+        quantity: 10,
+    },
+    {
+        name: 'Shipping',
+        isShipping: true,
+        price: 50,
+    },
+]
+
+expectToBe('Shipping is not added below price 200', orderTotal(cart6), 70)
+
+const cart7 = [
+    {
+        name: 'CD',
+        price: 2,
+        quantity: 100,
+    },
+    {
+        name: 'Shipping',
+        isShipping: true,
+        price: 50,
+    },
+]
+
+expectToBe('Shipping is not added when price is equal 200', orderTotal(cart7), 250)
+
+const cart8 = [
+    {
+        name: 'CD',
+        price: 2,
+        quantity: 100,
+    },
+    {
+        name: 'Shipping',
+        isShipping: true,
+        price: 50,
+        quantity: 2,
+    },
+]
+
+expectToBe('Shipping is not added below price 200', orderTotal(cart8), 250)
