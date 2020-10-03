@@ -1,16 +1,16 @@
-const expectation1 = add(1, 2) === 3
+const cart0 = []
 
-if(!expectation1){
-    console.error('Can\'t add 1 + 2 === 3')
+if(orderTotal(cart0) !== 0){
+    console.error('Can\'t calculate total of empty cart')
 }
 
-const expectation2 = add(-2, 2) === 0
+const cart1 = [
+    {
+        name: 'Laptop',
+        price: 1000
+    }
+]
 
-if(!expectation2){
-    console.error('Can\'t add -2 + 2 === 0')
+if(orderTotal(cart1) !== 1000){
+    console.error('Can\'t calculate total of 1 product in cart')
 }
-
-try {
-    add()
-    console.error('Does not throws error when called without params')
-} catch (error) {}
