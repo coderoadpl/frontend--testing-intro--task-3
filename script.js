@@ -1,4 +1,4 @@
-const orderTotal = (cart) => {
+const orderTotal = (cart) => {    
     return cart.reduce(
         (total, { price, quantity }) => {
             const realQuantity = quantity ?? 1

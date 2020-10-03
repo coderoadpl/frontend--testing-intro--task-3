@@ -1,8 +1,6 @@
 const cart0 = []
 
-if(orderTotal(cart0) !== 0){
-    console.error('Can\'t calculate total of empty cart')
-}
+expectToBe('Can\'t calculate total of empty cart', orderTotal(cart0), 0)
 
 const cart1 = [
     {
@@ -11,11 +9,7 @@ const cart1 = [
     }
 ]
 
-if(orderTotal(cart1) !== 1000){
-    console.error('Can\'t calculate total of 1 product in cart')
-    console.error('Expectation', 1000)
-    console.error('Result', orderTotal(cart1))
-}
+expectToBe('Can\'t calculate total of 1 product in cart', orderTotal(cart1), 1000)
 
 const cart2 = [
     {
@@ -25,9 +19,11 @@ const cart2 = [
     }
 ]
 
-if(orderTotal(cart2) !== 2000){
-    console.error('Can\'t calculate total of 1 product with 2 quantity in cart')
-}
+expectToBe(
+    'Can\'t calculate total of 1 product with 2 quantity in cart',
+    orderTotal(cart2),
+    2000
+)
 
 const cart3 = [
     {
@@ -42,9 +38,11 @@ const cart3 = [
     }
 ]
 
-if(orderTotal(cart3) !== 2500){
-    console.error('Can\'t calculate total of 2 products with quantity in cart')
-}
+expectToBe(
+    'Can\'t calculate total of 2 products with quantity in cart',
+    orderTotal(cart3),
+    2500
+)
 
 const cart4 = [
     {
@@ -59,6 +57,8 @@ const cart4 = [
     }
 ]
 
-if(orderTotal(cart4) !== 2000){
-    console.error('Can\'t calculate total of 2 products with 0 quantity in cart')
-}
+expectToBe(
+    'Can\'t calculate total of 2 products with 0 quantity in cart',
+    orderTotal(cart4),
+    2000
+)
