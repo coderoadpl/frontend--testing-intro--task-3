@@ -13,8 +13,9 @@ const cart1 = [
 
 if(orderTotal(cart1) !== 1000){
     console.error('Can\'t calculate total of 1 product in cart')
+    console.error('Expectation', 1000)
+    console.error('Result', orderTotal(cart1))
 }
-
 
 const cart2 = [
     {
@@ -24,7 +25,7 @@ const cart2 = [
     }
 ]
 
-if(orderTotal(cart1) !== 2000){
+if(orderTotal(cart2) !== 2000){
     console.error('Can\'t calculate total of 1 product with 2 quantity in cart')
 }
 

@@ -1,6 +1,9 @@
 const orderTotal = (cart) => {
     return cart.reduce(
-        (r, { price }) => r + price,
+        (total, { price, quantity }) => {
+            const realQuantity = quantity ?? 1
+            return total + (price * realQuantity)
+        },
         0
     )
 }
