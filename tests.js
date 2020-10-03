@@ -62,3 +62,23 @@ expectToBe(
     orderTotal(cart4),
     2000
 )
+
+expectToThrow(
+    'Did not throw error when called without arguments',
+    orderTotal,
+    'First argument must be an array!'
+)
+
+expectToThrow(
+    'Did not throw error when called without arguments',
+    () => orderTotal(123),
+    'First argument must be an array!'
+)
+
+expectToThrow(
+    'Did not throw error when called without arguments',
+    () => orderTotal({
+        reduce: () => 0,
+    }),
+    'First argument must be an array!'
+)
