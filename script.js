@@ -12,16 +12,12 @@ const orderTotal = (cart) => {
     )
 
     const shipping = cart.find((product) => product.isShipping)
+    if (!shipping) return total
+
+    const realShippingQuantity = shipping.quantity ?? 1
+    const totalWithoutShipping = total - (shipping.price * realShippingQuantity)
+    const isQualifiedForFreeShipping = totalWithoutShipping > FREE_SHIPPING_MIN_TOTAL
     
-    if (shipping) {
-        const totalWithoutShipping = total - (shipping.price * (shipping.quantity ?? 1))
-
-        if (totalWithoutShipping > FREE_SHIPPING_MIN_TOTAL) {
-            return totalWithoutShipping
-        }
-
-        return totalWithoutShipping + shipping.price
-    }
-
-    return total
+    if (!isQualifiedForFreeShipping) return totalWithoutShipping + shipping.price
+    return totalWithoutShipping
 }
