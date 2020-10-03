@@ -70,13 +70,13 @@ expectToThrow(
 )
 
 expectToThrow(
-    'Did not throw error when called without arguments',
+    'Did not throw error when called with wrong arguments (number)',
     () => orderTotal(123),
     'First argument must be an array!'
 )
 
 expectToThrow(
-    'Did not throw error when called without arguments',
+    'Did not throw error when called with wrong arguments (object)',
     () => orderTotal({
         reduce: () => 0,
     }),
@@ -147,4 +147,4 @@ const cart8 = [
     },
 ]
 
-expectToBe('Shipping is not added below price 200', orderTotal(cart8), 250)
+expectToBe('Shipping is not added below price 200 only once', orderTotal(cart8), 250)
